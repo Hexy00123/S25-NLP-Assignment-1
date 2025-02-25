@@ -1,0 +1,21 @@
+[package]
+name = "spelling_corrector"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "spelling_corrector"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.23.3"
+rayon = "1.10.0"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level=3
+
+[build]
+rustflags = ["-C", "target-cpu=native"]
+
